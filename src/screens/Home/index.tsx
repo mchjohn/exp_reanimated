@@ -1,43 +1,62 @@
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-} from 'react-native'
+import { useState } from 'react'
+import { View, StyleSheet } from 'react-native'
 
 import { AnimatedWidth } from '../../components/AnimatedWidth'
 import { AnimatedRight } from '../../components/AnimatedRight'
 import { CustomAnimated } from '../../components/CustomAnimated'
+import { AnimatedWithTiming } from '../../components/AnimatedWithTiming'
+import { AnimatedWithSpring } from '../../components/AnimatedWithSpring'
+
+import { Button } from '../../components/Button'
+
+const AnimationTypes = {
+  animatedWith: AnimatedWidth,
+  animatedRight: AnimatedRight,
+  customAnimated: CustomAnimated,
+  animatedWithTiming: AnimatedWithTiming,
+  animatedWithSpring: AnimatedWithSpring,
+}
 
 export function Home() {
+  const [type, setType] = useState<keyof typeof AnimationTypes>('animatedWith')
+
+  const handlePress = (animType: keyof typeof AnimationTypes) => {
+    setType(animType)
+  }
+
+  const renderComponent = (animType: keyof typeof AnimationTypes) => {
+    const SelectedComponent = AnimationTypes[animType]
+
+    return <SelectedComponent />
+  }
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.wrapper}>
-        <AnimatedWidth />
+    <View style={styles.container}>
+      <View style={styles.buttonGroup}>
+        <Button onPress={() => handlePress('animatedWith')} title="Animação do with" bgColor='#7BDFF2' />
+        <Button onPress={() => handlePress('animatedRight')} title="Animação para direita" bgColor='#F2B5D4' />
+        <Button onPress={() => handlePress('customAnimated')} title="Animação de SVG" bgColor='#B2F7EF' />
+        <Button onPress={() => handlePress('animatedWithTiming')} title="Animação com withTiming" bgColor='#F7D6E0' />
+        <Button onPress={() => handlePress('animatedWithSpring')} title="Animação com withSpring" bgColor='#EE6055' />
       </View>
 
-      <View style={styles.wrapper}>
-        <AnimatedRight />
-      </View>
-
-      <View style={styles.wrapper}>
-        <CustomAnimated />
-      </View>
-    </ScrollView>
+      {renderComponent(type)}
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 32,
+    paddingHorizontal: 16,
   },
-  wrapper: {
-    gap: 2,
-    width: '100%',
-    padding: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f7f7f7',
-    borderBottomWidth: 1,
+  buttonGroup: {
+    gap: 4,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    paddingBottom: 16,
+    borderBottomWidth: 4,
     borderBottomColor: '#333',
   },
 })

@@ -1,5 +1,7 @@
-import { Button, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import Animated, { withSpring, useSharedValue } from 'react-native-reanimated'
+
+import { ClickButton } from '../ClickButton'
 
 export function AnimatedWidth() {
   const width = useSharedValue(100)
@@ -13,7 +15,7 @@ export function AnimatedWidth() {
       <Animated.View
         style={[styles.box, { width }]}
       />
-      <Button onPress={handlePress} title="AnimatedWidth" />
+      <ClickButton onPress={handlePress} />
     </>
   )
 }

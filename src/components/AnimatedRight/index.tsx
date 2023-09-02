@@ -1,5 +1,7 @@
-import { Button, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import Animated, { withSpring, useSharedValue, useAnimatedStyle } from 'react-native-reanimated'
+
+import { ClickButton } from '../ClickButton'
 
 export function AnimatedRight() {
   const translateX = useSharedValue(0)
@@ -15,7 +17,7 @@ export function AnimatedRight() {
   return (
     <>
       <Animated.View style={[styles.box, animatedStyles]} />
-      <Button onPress={handlePress} title="AnimatedRight" />
+      <ClickButton onPress={handlePress} />
     </>
   )
 }

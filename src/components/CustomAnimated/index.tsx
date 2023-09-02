@@ -1,6 +1,8 @@
+import { StyleSheet } from 'react-native'
 import { Circle, Svg } from 'react-native-svg'
-import { Button, StyleSheet } from 'react-native'
 import Animated, { useSharedValue, withTiming, useAnimatedProps } from 'react-native-reanimated'
+
+import { ClickButton } from '../ClickButton'
 
 export function CustomAnimated() {
   const r = useSharedValue(10)
@@ -20,7 +22,7 @@ export function CustomAnimated() {
       <Svg style={styles.svg}>
         <AnimatedCircle cx="50" cy="50" r={r} fill="blue" animatedProps={animatedProps} />
       </Svg>
-      <Button onPress={handlePress} title="CustomAnimated" />
+      <ClickButton onPress={handlePress} />
     </>
   )
 }
