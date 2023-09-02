@@ -9,7 +9,6 @@ import { useEffect } from 'react'
 import { Text, Dimensions, StyleSheet } from 'react-native'
 
 const width = Dimensions.get('screen').width
-console.log(width - 100)
 
 export function AnimatedWithSpring() {
   const finalPos = width - 100 - 32 /** largura da tela - tamanho do box - padding */

@@ -6,6 +6,7 @@ import { AnimatedRight } from '../../components/AnimatedRight'
 import { CustomAnimated } from '../../components/CustomAnimated'
 import { AnimatedWithTiming } from '../../components/AnimatedWithTiming'
 import { AnimatedWithSpring } from '../../components/AnimatedWithSpring'
+import { AnimatedInputSearch } from '../../components/AnimatedInputSearch'
 
 import { Button } from '../../components/Button'
 
@@ -15,10 +16,11 @@ const AnimationTypes = {
   customAnimated: CustomAnimated,
   animatedWithTiming: AnimatedWithTiming,
   animatedWithSpring: AnimatedWithSpring,
+  animatedInputSearch: AnimatedInputSearch,
 }
 
 export function Home() {
-  const [type, setType] = useState<keyof typeof AnimationTypes>('animatedWith')
+  const [type, setType] = useState<keyof typeof AnimationTypes>('animatedInputSearch')
 
   const handlePress = (animType: keyof typeof AnimationTypes) => {
     setType(animType)
@@ -38,6 +40,7 @@ export function Home() {
         <Button onPress={() => handlePress('customAnimated')} title="Animação de SVG" bgColor='#B2F7EF' />
         <Button onPress={() => handlePress('animatedWithTiming')} title="Animação com withTiming" bgColor='#F7D6E0' />
         <Button onPress={() => handlePress('animatedWithSpring')} title="Animação com withSpring" bgColor='#EE6055' />
+        <Button onPress={() => handlePress('animatedInputSearch')} title="Animação de input" bgColor='#60D394' />
       </View>
 
       {renderComponent(type)}
