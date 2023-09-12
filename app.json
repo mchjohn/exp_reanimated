@@ -1,6 +1,13 @@
 {
   "expo": {
     "name": "exp_reanimated",
-    "slug": "exp_reanimated"
+    "slug": "exp_reanimated",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    },
+    "scheme": "expreanimated"
   }
 }

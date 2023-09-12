@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
 import Animated, { withSpring, useSharedValue } from 'react-native-reanimated'
 
-import { ClickButton } from '../ClickButton'
+import { ClickButton } from '../../components/ClickButton'
 
-export function AnimatedWidth() {
+export default function FirstAnimation() {
   const width = useSharedValue(100)
 
   const handlePress = () => {

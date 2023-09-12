@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
 import Animated, { withSpring, useSharedValue, useAnimatedStyle } from 'react-native-reanimated'
 
-import { ClickButton } from '../ClickButton'
+import { ClickButton } from '../../components/ClickButton'
 
-export function AnimatedRight() {
+export default function StylesAndPropsAnimation() {
   const translateX = useSharedValue(0)
 
   const animatedStyles = useAnimatedStyle(() => ({
