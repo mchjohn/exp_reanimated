@@ -1,18 +1,16 @@
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { LinkButton } from '../components/LinkButton'
+import { LinkButton } from '../../components/LinkButton'
 
-export default function Home() {
+export default function CustomizingAnimations() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>Escolha uma animação na lista</Text>
 
       <View style={styles.content}>
-        <LinkButton href='/FirstAnimation' title='Primeira animação' />
-        <LinkButton href='/StylesAndPropsAnimation' title='Animação de styles e props' />
-        <LinkButton href='/CustomizingAnimations' title='Customizando animações' />
-        <LinkButton href='/ApplyingModifiers' title='Aplicando modificadores' />
+        <LinkButton href='/CustomizingAnimations/WithSpring' title='withTiming' />
+        <LinkButton href='/CustomizingAnimations/WithTiming' title='withSpring' />
       </View>
     </SafeAreaView>
   )

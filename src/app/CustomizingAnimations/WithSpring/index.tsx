@@ -10,7 +10,7 @@ import { Text, Dimensions, StyleSheet } from 'react-native'
 
 const width = Dimensions.get('screen').width
 
-export function AnimatedWithSpring() {
+export default function WithSpring() {
   const finalPos = width - 100 - 32 /** largura da tela - tamanho do box - padding */
   const defaultAnim = useSharedValue(0)
   const changedAnim = useSharedValue(0)

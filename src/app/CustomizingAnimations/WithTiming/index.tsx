@@ -11,7 +11,7 @@ import { Text, StyleSheet } from 'react-native'
 
 const duration = 2000
 
-export function AnimatedWithTiming() {
+export default function WithTiming() {
   const linear = useSharedValue(200)
   const bounce = useSharedValue(0)
   const defaultAnim = useSharedValue(200)
